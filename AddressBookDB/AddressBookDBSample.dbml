@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="BasicAddressBook" Class="AddressBookDBSampleDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=LAPTOP-E6RG946U;Initial Catalog=BasicAddressBook;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False" SettingsObjectName="AddressBookDB.Properties.Settings" SettingsPropertyName="BasicAddressBookConnectionString" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.uspAddCountry" Method="uspAddCountry">
+    <Parameter Name="country" Type="System.String" DbType="NVarChar(100)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.uspSelectCountry" Method="uspSelectCountry">
+    <ElementType Name="uspSelectCountryResult">
+      <Column Name="CountryID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CountryName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspAddCity" Method="uspAddCity">
+    <Parameter Name="city" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="countryID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.uspSelectCity" Method="uspSelectCity">
+    <ElementType Name="uspSelectCityResult">
+      <Column Name="CityID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="City" Type="System.String" DbType="NVarChar(202) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspAddContact" Method="uspAddContact">
+    <Parameter Name="LN" Parameter="lN" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="FN" Parameter="fN" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="MN" Parameter="mN" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="dob" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="add" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="cID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="eAdd" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="cNum" Type="System.String" DbType="NVarChar(15)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.uspSelectContact" Method="uspSelectContact">
+    <ElementType Name="uspSelectContactResult">
+      <Column Name="ContactID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ContName" Type="System.String" DbType="NVarChar(153)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspSelectedContact" Method="uspSelectedContact">
+    <Parameter Name="contactID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="uspSelectedContactResult">
+      <Column Name="ContactID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ContactLN" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ContactFN" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ContactMN" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ContactDOB" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="ContactAdd" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="CityID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ContactEmailAdd" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="ContactNum" Type="System.String" DbType="NVarChar(15) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspUpdateContact" Method="uspUpdateContact">
+    <Parameter Name="contID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="LN" Parameter="lN" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="FN" Parameter="fN" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="MN" Parameter="mN" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="dob" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="add" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="cID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="eAdd" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="cNum" Type="System.String" DbType="NVarChar(15)" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>
